@@ -1,0 +1,390 @@
+jQuery(window).scroll(function() {
+  var nav = jQuery('.navbar');
+  var body = jQuery('body');
+
+  if (jQuery(window).scrollTop() >= 90) {
+    nav.addClass('fixed');
+  } else {
+    nav.removeClass('fixed');
+  }
+});
+
+if(jQuery('#home').length){
+  jQuery(window).scroll(function() {
+    if(jQuery(window).width() >= 992) {
+      var offSet = 90;
+    } else if(jQuery(window).width() >= 576) {
+      var offSet = 90;
+    } else {
+      var offSet = 80;
+    }
+    var scrollDistance = jQuery(window).scrollTop() + offSet;
+    jQuery('.nav-section').each(function(i) {
+      if (jQuery(this).position().top <= scrollDistance) {
+        //jQuery('#mainNav li.active').removeClass('active');
+        //jQuery('#mainNav li').eq(i).addClass('active');
+      }
+    });
+  }).scroll();
+}
+
+
+jQuery(function($) {
+
+  if ($('#back-to-top').length) {
+    var scrollTrigger = $(window).height(),
+
+    backToTop = function () {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > scrollTrigger) {
+            $('#back-to-top').addClass('show');
+        } else {
+            $('#back-to-top').removeClass('show');
+        }
+    };
+
+    backToTop();
+
+    $(window).on('scroll', function () {
+        backToTop();
+    });
+    
+  }
+
+  function scrollToAnchor(aid){
+    const destination = $('#' + aid);
+    $('html,body').animate({
+        scrollTop: destination.offset().top-70
+    },'slow');
+  }
+  
+  $(document).on('click', '.smooth-link', function(){
+      scrollToAnchor('form');
+  });
+
+});
+
+
+
+
+jQuery(function($) {
+  "use strict"; // Start of use strict
+
+  /* LOADER  */
+  $(window).on('load', function() {
+    //$(".loader").fadeOut("slow");
+  });
+
+  new WOW().init();
+
+  //$('.no-link').click(function(){ return false });
+  $('.no-link').click(function(e) {
+    e.preventDefault();
+  });
+
+  if($('#home').length){
+    $('.navbar-collapse a').bind('click', function(event) {
+      var $anchor = $(this);
+
+      if($(window).width() >= 992) {
+        var offSet = 89;
+      } else if($(window).width() >= 576) {
+        var offSet = 89;
+      } else {
+        var offSet = 79;
+      }
+
+      $('html, body').stop().animate({
+        scrollTop: ($($anchor.attr('href')).offset().top - offSet)
+      }, 
+      1250, 'easeInOutExpo');
+      event.preventDefault();
+    });
+
+    $('.navbar-collapse a').click(function(){
+      $(".navbar-collapse").collapse('hide');
+    });
+  }
+
+  // Closes the Responsive Menu on Menu Item Click
+  $(".navbar-toggler").click(function(){
+    $("body").toggleClass("mobile-collapsed");
+  });
+
+  if($('.main-table').length){
+    $(".main-table").clone(true).appendTo('#table-scroll').addClass('clone');
+  }
+
+  function medidas(){ 
+    $('.js-bg').each(function(index, el) {
+      var urlimg = $(this).attr('data-img');
+      var img = urlimg.split(';');
+
+      var screen = $(window).width();
+      var bgi = 'background-image:url(';
+      var cierre = ')';
+
+      if (screen > 1024) {
+        $(el).attr('style', bgi+img[0]+cierre);
+      };
+
+      if (screen <= 1024) {
+        $(el).attr('style', bgi+img[1]+cierre);
+      };
+
+      if (screen <= 767) {
+        $(el).attr('style', bgi+img[2]+cierre);
+      };
+    });
+  };
+  medidas();
+  $(window).resize(function(event) {
+    medidas();
+  });
+   
+  $('.slider__principal--pitcher').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    infinite:false,
+    fade: true,
+    draggable: false,
+    dots: true
+   });
+
+
+  // create references to the 3 dropdown fields for later use.
+  // var $makes_wrap = $('.sede');
+  // var $models_wrap = $('.programa');
+  // var $years_wrap = $('.turno');
+
+  // var $makes_dd = $('[name="sede"]');
+  // var $models_dd = $('[name="programa"]');
+  // var $years_dd = $('[name="turno"]');
+
+  //$makes_wrap.show();
+  //$models_wrap.hide();
+  //$years_wrap.hide();
+
+  // $makes_dd.prop('disabled', true);
+  // $models_dd.prop('disabled', true);
+  // $years_dd.prop('disabled', true);
+
+  /*
+  $makes_dd.prop('disabled', true);
+  $models_dd.prop('disabled', true);
+  $years_dd.prop('disabled', true);
+  */
+
+  // run the populate_fields function, and additionally run it every time a value changes
+  // populate_fields();
+  // $('select').change(function() {
+  //   populate_fields();
+  // });
+
+  // function populate_fields() {
+  //   var data = {
+  //     // action needs to match the action hook part after wp_ajax_nopriv_ and wp_ajax_ in the server side script.
+  //     'action' : 'cf7_populate_values', 
+  //     // pass all the currently selected values to the server side script.
+  //     'make' : $makes_dd.val(),
+  //     'model' : $models_dd.val(),
+  //     'year' : $years_dd.val()
+  //   };
+  //   // call the server side script, and on completion, update all dropdown lists with the received values.
+  //   $.post('/wp-admin/admin-ajax.php', data, function(response) {
+  //     var all_values;
+  //     all_values = response;
+
+  //     $makes_dd.html('').append($('<option>').text('Selecciona una sede*')).prop('disabled', true);
+  //     $models_dd.html('').append($('<option>').text('Selecciona una carrera*')).prop('disabled', true);
+  //     $years_dd.html('').append($('<option>').text('Selecciona un turno*')).prop('disabled', true);
+  //     //$models_dd.html('').append($('<option>').text('Selecciona una programa*')).prop('disabled', true).parent().hide();
+  //     //$years_dd.html('').append($('<option>').text('Selecciona un turno*')).prop('disabled', true).parent().hide();
+
+  //     // MULTI 
+  //     $.each(all_values.A1, function() {
+  //       var $option;
+  //       $option = $("<option>").text(this[0].V).val(this[0].CODE);
+  //       if(all_values.current_make == this[0].CODE) {
+  //         $option.attr('selected','selected');
+  //       }
+  //       $makes_dd.append($option).prop('disabled', false);
+  //     });
+
+  //     $.each(all_values.A2, function() {
+  //       var $option;
+  //       //alert(this[0].V);
+  //       $option = $("<option>").text(this[0].V).val(this[0].CODE);
+  //       if(all_values.current_model == this[0].CODE) {
+  //         $option.attr('selected','selected');
+  //       }
+  //       $models_dd.append($option).prop('disabled', false);
+  //       //$models_wrap.fadeIn();
+  //     });
+
+  //     $.each(all_values.A3, function() {
+  //       var $option;
+  //       //alert(this[0].V);
+  //       $option = $("<option>").text(this[0].V).val(this[0].CODE);
+  //       if(all_values.current_year == this[0].CODE) {
+  //         $option.attr('selected','selected');
+  //       }
+  //       $years_dd.append($option).prop('disabled', false);
+  //       //$years_wrap.fadeIn();
+  //     });
+
+  //   },'json');
+  // }
+
+  $(".wpcf7-form-control-wrap").mouseover(function(){
+    var $tip = $("span.wpcf7-not-valid-tip",this);
+    $tip.css('display','none');
+  });
+
+  $("#numeroDoc").prop("disabled",true);
+
+  $('input.nospace').keydown(function(e){
+    if(e.keyCode == 32){
+      return false;
+    }
+  });
+
+  $("input[name='telefono']").on('input', function() {
+    $(this).val($(this).val().replace(/[^0-9]/g, ''));
+  });
+
+  $('#tipoDoc').change(function(){
+    var $numDoc = $('#numeroDoc');
+
+    $numDoc.val('');
+
+    if($(this).val() === ""){
+      $numDoc.attr('disabled', 'disabled');
+    } else {
+      $numDoc.removeAttr('disabled');
+    }
+
+    $numDoc.on('input', function () {
+      if($('#tipoDoc').val() == 'DNI'){
+        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+      } else {
+        return true;
+      }
+    });
+
+    if($(this).val() == 'DNI'){ 
+      $numDoc.attr('maxlength','8');
+    } else {
+      $numDoc.attr('maxlength','12');
+    }
+  });
+
+  $('.wpcf7-form').keypress(function(event) {
+    if (event.keyCode == '13') {
+      event.preventDefault();
+    }
+  });
+
+  var disableSubmit = false;
+  $('.wpcf7-submit').click(function() {
+    $(this).val("Procesando...");
+    if (disableSubmit == true) {
+      $(this).prop("disabled",true);
+      return false;
+    }
+    disableSubmit = true;
+    return true;
+  });
+
+  document.addEventListener( 'wpcf7submit', function( event ) {
+    $('.wpcf7-submit').val("Registrarme");
+    disableSubmit = false;
+  }, false );
+
+  document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/gracias/';
+  }, false );
+
+  function moveDiv() {
+    if($(window).width() < 992) {
+      $('.intro-form').appendTo('.form-mobile');
+    } else {
+      $('.intro-form').appendTo('.form-desktop');
+    }
+  }
+  //moveDiv();
+  //$(window).resize(moveDiv);
+
+  //stycky
+  var window_width = $(window).width();
+
+  if(window_width < 992){
+    $(".sticky").trigger("sticky_kit:detach");
+  } else {
+    make_sticky();
+  }
+
+  $(window).resize(function(){
+    window_width = $(window).width();
+    if(window_width < 992){
+      $(".sticky").trigger("sticky_kit:detach");
+    } else {
+      make_sticky();
+    }
+  });
+
+  function make_sticky(){
+    $('.sticky').stick_in_parent({
+      //offset_top: 40
+      offset_top: 120
+    });
+  }
+
+  $('.ytvideo[data-video]').one('click', function() {
+    var $this = $(this);
+    var width = $this.attr("width");
+    var height = $this.attr("height");
+    $this.html('<iframe src="https://www.youtube.com/embed/' + $this.data("video") + '?autoplay=1"></iframe>');
+  });
+
+
+  //$('section iframe[src*="youtube.com"]').wrap('<div class="videowrap" />');
+
+}); // End of use strict
+
+/*Permite llenar los UTMs*/
+jQuery(function($) {
+  var qvars = getUrlVars()
+
+  $.each([ 'utm_source','utm_medium','utm_term', 'utm_content', 'utm_campaign', 'gclid', 'email', 'username' ], function( i,v ) {
+
+      var utm_field = GetQVars(v,qvars)
+      
+
+       if ( utm_field != '' )
+
+           jQuery('input[name=\"'+v+'\"]').val(utm_field)
+
+  });
+
+  var handl_url = window.location.href
+  jQuery('input[name=\"handl_url\"]').val(handl_url)
+
+});
+
+function GetQVars(v,qvars){
+  if (qvars[v] != undefined) {
+      return qvars[v]
+  }
+  return ''
+}
+
+function getUrlVars() {
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+      vars[key] = value;
+  });
+  return vars;
+}
