@@ -1,0 +1,251 @@
+
+/* 
+    Created on : 1/09/2023, 09:53:03 PM
+    Author     : Farid
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.cuerpo_general{
+    background-color: rgb(219, 193, 108);
+
+}
+
+._fixed{
+    
+    background-color: rgb(39, 39, 39);
+    width: 100%;
+    height: 60px;
+    z-index: 9999;
+    position: fixed;
+    text-align: center;
+}
+._fixed>p{
+    margin-top: 20px;
+    color: rgba(209, 209, 209, 0.774);
+    font-size: 12pt;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.espacio_vacio{
+    height: 60px;
+}
+.Fotografia{
+    
+    background-image: linear-gradient(to bottom, #1f141dda, #271933);
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.dentro{
+    background-color: transparent;
+    width: 85%;
+    height: auto;
+    position: relative;
+    margin: 40px;
+  display: flex;
+  flex-wrap: wrap;
+    justify-content: center;
+ 
+}
+.displayy2{
+    display: flex;
+  flex-wrap: wrap;
+    justify-content: center;
+}
+.texto_nuevo{
+    background-color: transparent;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: start;
+    line-height: 28px;
+    background-color: rgba(161, 156, 156, 0.151);
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 14pt;
+    color: rgba(240, 248, 255, 0.651);
+    
+}
+.texto_nuevo>li{
+    background-color:transparent;
+}
+
+.h1_tec{
+    font-size:15pt;
+    margin-bottom: 10px;
+}
+.p-tec{
+    font-weight: bold;
+}
+.displayy{
+    width: 600px;
+    
+    
+    background-color:transparent;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.hh1{
+    position: relative;
+    background-color: rgba(161, 156, 156, 0.151);
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 14pt;
+    justify-content: center;
+  align-items: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: rgba(240, 248, 255, 0.651);
+}
+
+.foto_personal{
+    width: 320px;
+    height: 330px;
+    border-radius: 15px;
+    border: 5px solid rgba(196, 186, 186, 0.164);
+}
+
+
+.hh2{
+    position: relative;
+    background-color: rgba(161, 156, 156, 0.24);
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 15pt;
+    justify-content: center;
+  align-items: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: rgba(240, 248, 255, 0.651);
+}
+
+.display3{
+    margin-top: 20px;   
+    margin-right: 50px;
+    margin-bottom: 10px;
+}
+.personal{
+    height: 500px;
+}
+.fot{
+    height: 400px;
+}
+
+.proyectos{
+    width: 670px;
+    height: 380px;
+}
+.fot3{
+    width: 400px;
+    
+}
+.fot4{
+    width: 350px;
+    height: 350px;
+    
+}
+
+
+.s1{
+    
+    background-image: linear-gradient(to bottom, #2b2b2c, #3b264d); /* Standard syntax */
+    
+}
+.s2{
+    
+    background-image: linear-gradient(to bottom, #4b1f1f, #2f1d3f); /* Standard syntax */
+    
+}
+
+.s3{
+    
+    background-image: linear-gradient(to bottom, #292a2b, #271933); /* Standard syntax */
+    
+}
+
+.s4{
+    
+    background-image: linear-gradient(to bottom, #292a2b, #271933); /* Standard syntax */
+    
+}
+
+
+
+
+
+
+.present {
+    display:inline-block;
+    
+}
+.enlaces-menu{
+    text-decoration:none;
+    color:white;
+    background-color: rgb(39, 39, 39);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.enlaces-menu:hover{
+    text-decoration:none;
+    color:white;
+    background-color: rgb(89, 42, 42);
+    
+}
+
+
+
+
+.video_personal{
+    width: 900px;
+}
+
+.movill{
+    background-color:transparent;
+    width: 250px;
+    margin: 8px;
+    height: 500px;
+}
+.movil{
+    width: 250px;
+    height: 500px;
+}
+@media (max-width: 1450px) {
+    .displayy {
+        
+        margin: 15px;
+    }
+
+    .proyectos{
+        width: 500px;
+    }
+
+    
+
+
+}
+@media (max-width: 1000px) {
+    .displayy {
+        margin: 15px;
+    }
+
+    .proyectos{
+        width: 500px;
+    }
+    .video_personal{
+        width: 500px;
+    }
+
+    ._fixed{
+        height: 100px;
+    }
+
+
+}
