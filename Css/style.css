@@ -237,25 +237,6 @@
     }
 
     .proyectos{
-        width: 500px;
-    }
-    .video_personal{
-        width: 500px;
-    }
-
-    ._fixed{
-        height: 100px;
-    }
-
-
-}
-
-@media (max-width: 700px) {
-    .displayy {
-        margin: 15px;
-    }
-
-    .proyectos{
         width: 300px;
     }
     .video_personal{
@@ -268,3 +249,5 @@
 
 
 }
+
+
