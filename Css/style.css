@@ -249,3 +249,22 @@
 
 
 }
+
+@media (max-width: 7000px) {
+    .displayy {
+        margin: 15px;
+    }
+
+    .proyectos{
+        width: 300px;
+    }
+    .video_personal{
+        width: 300px;
+    }
+
+    ._fixed{
+        height: 100px;
+    }
+
+
+}
