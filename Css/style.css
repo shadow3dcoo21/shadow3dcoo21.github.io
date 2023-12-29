@@ -233,7 +233,7 @@
 }
 @media (max-width: 1000px) {
     .displayy {
-        margin: 15px;
+        margin-top: 15px;
     }
 
     .proyectos{
